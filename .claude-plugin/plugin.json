@@ -1,0 +1,20 @@
+{
+  "name": "webapp-workshop-agents",
+  "version": "1.0.0",
+  "description": "Multi-agent web development team with 14 specialized AI agents and 35 core skills for building any type of web application. Uses orchestrator pattern for task delegation.",
+  "author": "kwad-pylot",
+  "repository": "https://github.com/kwad-pylot/webapp-workshop-agents",
+  "agents": "agents/",
+  "skills": "skills/",
+  "keywords": [
+    "web-development",
+    "multi-agent",
+    "orchestrator",
+    "frontend",
+    "backend",
+    "fullstack",
+    "devops",
+    "qa",
+    "documentation"
+  ]
+}
