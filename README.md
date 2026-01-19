@@ -218,6 +218,75 @@ Each agent responds to specific trigger phrases:
 | documentation-writer | "document", "README", "API docs" |
 | research-explorer | "research", "compare libraries", "find package" |
 
+## Integration with GSD (Get Shit Done)
+
+This plugin works best when combined with [GSD](https://github.com/glittercowboy/get-shit-done) - a context engineering and project management framework for Claude Code.
+
+### Why Use Both?
+
+| Framework | Role | Strength |
+|-----------|------|----------|
+| **GSD** | Project Manager | Process, tracking, context engineering, persistence |
+| **WebApp Workshop** | Development Team | Domain expertise, code generation, implementation |
+
+**GSD** ensures consistency and prevents context rot. **WebApp Workshop** provides specialized expertise for web development execution.
+
+### Combined Workflow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 1: GSD Handles the Process                           │
+├─────────────────────────────────────────────────────────────┤
+│  /gsd:new-project         → Define vision & requirements    │
+│  /gsd:create-roadmap      → Plan phases & milestones        │
+│  /gsd:discuss-phase 1     → Capture preferences             │
+│  /gsd:plan-phase 1        → Create detailed PLAN.md         │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 2: WebApp Workshop Does the Work                     │
+├─────────────────────────────────────────────────────────────┤
+│  /gsd:execute-plan        → Triggers execution              │
+│    └── orchestrator       → Coordinates specialists         │
+│        ├── architect      → Tech decisions                  │
+│        ├── backend-eng    → API code                        │
+│        ├── frontend-eng   → UI components                   │
+│        ├── database-spec  → Schema & migrations             │
+│        └── qa-engineer    → Tests                           │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 3: GSD Tracks Completion                             │
+├─────────────────────────────────────────────────────────────┤
+│  /gsd:verify-work         → UAT testing                     │
+│  /gsd:progress            → Track completion                │
+│  /gsd:complete-milestone  → Archive & tag release           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### When to Use Which
+
+| Scenario | Use |
+|----------|-----|
+| Starting any project | GSD `/gsd:new-project` |
+| Tracking multi-day work | GSD (STATE.md persistence) |
+| Writing web app code | WebApp Workshop agents |
+| Debugging issues | GSD `/gsd:debug` |
+| Code review | WebApp Workshop `code-reviewer` |
+| Resuming after break | GSD `/gsd:resume-work` |
+| Quick feature (no planning) | WebApp Workshop agents directly |
+| Complex multi-phase project | GSD + WebApp Workshop together |
+
+### Installing GSD
+
+```bash
+npx get-shit-done-cc --global
+```
+
+Then verify with `/gsd:help` in Claude Code.
+
 ## Best Practices
 
 1. **Start with Planning**: Use product-manager and architect before implementation
@@ -225,6 +294,7 @@ Each agent responds to specific trigger phrases:
 3. **Test Early**: Engage qa-engineer throughout development
 4. **Security First**: Include security-specialist for auth features
 5. **Document As You Go**: Use documentation-writer for API docs
+6. **Use GSD for Projects**: For multi-phase work, use GSD for process management
 
 ## Contributing
 
